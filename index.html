@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AG Marketing Agency</title>
+  <meta name="description" content="App Promotion, Google Maps Boost, Social Media Marketing - AG Marketing Agency" />
+  <style>
+    body{margin:0;font-family:Arial,Helvetica,sans-serif;background:#0b0b0f;color:#fff}
+    header{padding:18px 20px;display:flex;justify-content:space-between;align-items:center;position:sticky;top:0;background:#0b0b0f;border-bottom:1px solid #222}
+    .logo{font-weight:800;letter-spacing:1px}
+    .btn{background:#ff2a2a;color:#fff;padding:10px 14px;border-radius:10px;text-decoration:none;font-weight:700}
+    .hero{padding:60px 20px;max-width:1100px;margin:auto}
+    .hero h1{font-size:42px;margin:0 0 10px}
+    .hero p{color:#cfcfcf;font-size:18px;max-width:700px}
+    .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px;margin-top:28px}
+    .card{background:#12121a;border:1px solid #222;padding:18px;border-radius:18px}
+    .card h3{margin:0 0 8px}
+    .muted{color:#cfcfcf}
+    .section{padding:50px 20px;max-width:1100px;margin:auto}
+    .price{font-size:28px;font-weight:900}
+    footer{padding:20px;text-align:center;color:#aaa;border-top:1px solid #222}
+    .wa{position:fixed;right:16px;bottom:16px;background:#25D366;color:#fff;padding:14px 16px;border-radius:999px;text-decoration:none;font-weight:800}
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="logo">AG MARKETING AGENCY</div>
+  <a class="btn" href="#pricing">View Packages</a>
+</header>
+
+<section class="hero">
+  <h1>Grow Your App & Business Fast 🚀</h1>
+  <p>
+    We help you boost your Play Store app visibility, increase installs, and grow your Google Maps location
+    with smart marketing strategies.
+  </p>
+
+  <div class="grid">
+    <div class="card">
+      <h3>📲 Play Store App Promotion</h3>
+      <p class="muted">App installs, keyword ranking, ASO guidance & growth strategy.</p>
+    </div>
+    <div class="card">
+      <h3>📍 Google Maps Boost</h3>
+      <p class="muted">Local SEO, profile optimization, and location visibility improvement.</p>
+    </div>
+    <div class="card">
+      <h3>📱 Social Media Marketing</h3>
+      <p class="muted">Instagram promotion, reels strategy, and brand growth support.</p>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="pricing">
+  <h2>Packages</h2>
+  <p class="muted">Choose a plan that fits your goal.</p>
+
+  <div class="grid">
+    <div class="card">
+      <h3>Basic</h3>
+      <div class="price">₹999</div>
+      <p class="muted">Starter promotion for small businesses & new apps.</p>
+    </div>
+
+    <div class="card">
+      <h3>Standard</h3>
+      <div class="price">₹2999</div>
+      <p class="muted">Better reach + strategy + visibility boost.</p>
+    </div>
+
+    <div class="card">
+      <h3>Premium</h3>
+      <div class="price">₹6999</div>
+      <p class="muted">Full marketing plan + maximum growth support.</p>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="contact">
+  <h2>Contact</h2>
+  <p class="muted">Click WhatsApp button to connect with us instantly.</p>
+</section>
+
+<footer>
+  © <span id="year"></span> AG Marketing Agency. All rights reserved.
+</footer>
+
+<!-- WhatsApp Button -->
+<a class="wa" href="https://wa.me/917764845197" target="_blank">WhatsApp</a>
+
+<script>
+  document.getElementById("year").innerText = new Date().getFullYear();
+</script>
+
+</body>
+</html>
