@@ -9,32 +9,20 @@
 
 <style>
 *{margin:0;padding:0;box-sizing:border-box;scroll-behavior:smooth}
+
 body{
   font-family:'Poppins',sans-serif;
-  background:linear-gradient(135deg,#0f0c29,#1a1a2e,#16213e);
+  background:linear-gradient(-45deg,#0f0c29,#1a1a2e,#16213e,#000000);
+  background-size:400% 400%;
+  animation:gradientBG 12s ease infinite;
   color:#fff;
   overflow-x:hidden;
 }
 
-/* Loading Screen */
-#loader{
-  position:fixed;
-  width:100%;
-  height:100%;
-  background:#0f0c29;
-  display:flex;
-  justify-content:center;
-  align-items:center;
-  z-index:9999;
-}
-#loader h1{
-  font-size:28px;
-  animation:pulse 1s infinite;
-}
-@keyframes pulse{
-  0%{opacity:0.3}
-  50%{opacity:1}
-  100%{opacity:0.3}
+@keyframes gradientBG{
+  0%{background-position:0% 50%}
+  50%{background-position:100% 50%}
+  100%{background-position:0% 50%}
 }
 
 header{
@@ -42,11 +30,12 @@ header{
   justify-content:space-between;
   align-items:center;
   padding:20px 40px;
-  backdrop-filter:blur(12px);
+  backdrop-filter:blur(15px);
   background:rgba(0,0,0,0.4);
   position:sticky;
   top:0;
   z-index:1000;
+  border-bottom:1px solid rgba(255,255,255,0.1);
 }
 
 .logo{
@@ -54,39 +43,55 @@ header{
   align-items:center;
   gap:10px;
   font-weight:800;
+  font-size:18px;
+  text-shadow:0 0 10px #ff2a2a;
 }
 
 .logo img{
   width:42px;
-  border-radius:10px;
+  border-radius:12px;
+  box-shadow:0 0 15px rgba(255,0,0,0.6);
 }
 
 .btn{
   background:linear-gradient(45deg,#ff2a2a,#ff6b6b);
-  padding:10px 18px;
-  border-radius:30px;
+  padding:10px 20px;
+  border-radius:40px;
   text-decoration:none;
   font-weight:600;
   transition:0.3s;
+  box-shadow:0 0 15px rgba(255,0,0,0.6);
 }
-.btn:hover{transform:scale(1.05);box-shadow:0 0 15px red}
+
+.btn:hover{
+  transform:scale(1.08);
+  box-shadow:0 0 25px rgba(255,0,0,1);
+}
 
 .hero{
   text-align:center;
-  padding:100px 20px;
+  padding:120px 20px;
+  animation:fadeUp 1.5s ease forwards;
 }
+
 .hero h1{
-  font-size:48px;
+  font-size:52px;
   margin-bottom:20px;
+  background:linear-gradient(45deg,#ff2a2a,#ff6b6b,#ffffff);
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
+  text-shadow:0 0 20px rgba(255,0,0,0.7);
 }
+
 .hero p{
-  opacity:0.8;
   max-width:700px;
   margin:auto;
+  opacity:0.8;
+  font-size:18px;
 }
 
 .section{
-  padding:70px 20px;
+  padding:80px 20px;
   max-width:1200px;
   margin:auto;
   text-align:center;
@@ -94,49 +99,31 @@ header{
 
 .grid{
   display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-  gap:20px;
+  grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+  gap:25px;
   margin-top:40px;
 }
 
 .card{
   background:rgba(255,255,255,0.05);
-  backdrop-filter:blur(10px);
-  padding:25px;
+  backdrop-filter:blur(12px);
+  padding:30px;
   border-radius:20px;
   border:1px solid rgba(255,255,255,0.1);
   transition:0.4s;
-}
-.card:hover{transform:translateY(-10px)}
-
-.counter{
-  font-size:40px;
-  font-weight:800;
-  margin-top:10px;
+  opacity:0;
+  transform:translateY(40px);
 }
 
-/* Testimonials */
-.testimonial{
-  margin-top:40px;
-  font-style:italic;
-  opacity:0.9;
-  min-height:60px;
+.card.show{
+  opacity:1;
+  transform:translateY(0);
 }
 
-/* Floating buttons */
-.wa,.ig{
-  position:fixed;
-  right:20px;
-  padding:14px 18px;
-  border-radius:50px;
-  text-decoration:none;
-  font-weight:600;
-  box-shadow:0 10px 25px rgba(0,0,0,0.4);
-  transition:0.3s;
+.card:hover{
+  transform:translateY(-12px);
+  box-shadow:0 0 25px rgba(255,0,0,0.6);
 }
-.wa{bottom:20px;background:#25D366}
-.ig{bottom:80px;background:#e1306c}
-.wa:hover,.ig:hover{transform:scale(1.1)}
 
 footer{
   text-align:center;
@@ -144,12 +131,34 @@ footer{
   opacity:0.6;
   border-top:1px solid rgba(255,255,255,0.1);
 }
+
+.wa,.ig{
+  position:fixed;
+  right:20px;
+  padding:14px 18px;
+  border-radius:50px;
+  text-decoration:none;
+  font-weight:600;
+  box-shadow:0 0 20px rgba(0,0,0,0.6);
+  transition:0.3s;
+}
+
+.wa{bottom:20px;background:#25D366}
+.ig{bottom:80px;background:#e1306c}
+
+.wa:hover,.ig:hover{
+  transform:scale(1.1);
+  box-shadow:0 0 30px #fff;
+}
+
+@keyframes fadeUp{
+  from{opacity:0;transform:translateY(40px)}
+  to{opacity:1;transform:translateY(0)}
+}
 </style>
 </head>
 
 <body>
-
-<div id="loader"><h1>Loading AG Marketing Agency...</h1></div>
 
 <header>
   <div class="logo">
@@ -161,7 +170,7 @@ footer{
 
 <section class="hero">
   <h1>Grow Your App & Business 🚀</h1>
-  <p>We provide powerful marketing solutions to boost apps, businesses & brands online.</p>
+  <p>Premium marketing solutions to boost visibility, installs, engagement & growth.</p>
 </section>
 
 <section class="section" id="services">
@@ -173,30 +182,9 @@ footer{
     <div class="card">📞 Justdial Promotion</div>
     <div class="card">🛒 Amazon Marketing</div>
     <div class="card">⭐ Reviews & Engagement</div>
+    <div class="card">📧 Fresh Gmail IDs</div>
+    <div class="card">🧾 App Signups</div>
   </div>
-</section>
-
-<section class="section">
-  <h2>Our Achievements</h2>
-  <div class="grid">
-    <div class="card">
-      Clients Served
-      <div class="counter" data-target="120">0</div>
-    </div>
-    <div class="card">
-      Projects Completed
-      <div class="counter" data-target="250">0</div>
-    </div>
-    <div class="card">
-      Successful Campaigns
-      <div class="counter" data-target="500">0</div>
-    </div>
-  </div>
-</section>
-
-<section class="section">
-  <h2>What Clients Say</h2>
-  <div class="testimonial" id="testimonial"></div>
 </section>
 
 <footer>
@@ -207,41 +195,16 @@ footer{
 <a class="wa" href="https://wa.me/919525795915" target="_blank">WhatsApp</a>
 
 <script>
-// Loader
-window.onload = function(){
-  document.getElementById("loader").style.display="none";
-}
-
-// Counter Animation
-const counters=document.querySelectorAll('.counter');
-counters.forEach(counter=>{
-  const update=()=>{
-    const target=+counter.getAttribute('data-target');
-    const count=+counter.innerText;
-    const inc=target/100;
-    if(count<target){
-      counter.innerText=Math.ceil(count+inc);
-      setTimeout(update,30);
-    }else{
-      counter.innerText=target;
+// Scroll reveal animation
+const cards=document.querySelectorAll('.card');
+window.addEventListener('scroll',()=>{
+  cards.forEach(card=>{
+    const top=card.getBoundingClientRect().top;
+    if(top<window.innerHeight-100){
+      card.classList.add('show');
     }
-  }
-  update();
+  });
 });
-
-// Testimonials Slider
-const testimonials=[
-"Professional & Fast Service!",
-"Highly recommended marketing partner.",
-"Good communication and timely delivery."
-];
-let index=0;
-function changeTestimonial(){
-  document.getElementById("testimonial").innerText=testimonials[index];
-  index=(index+1)%testimonials.length;
-}
-setInterval(changeTestimonial,3000);
-changeTestimonial();
 
 document.getElementById("year").innerText=new Date().getFullYear();
 </script>
