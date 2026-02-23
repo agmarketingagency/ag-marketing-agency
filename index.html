@@ -15,39 +15,32 @@ body{
   overflow-x:hidden;
 }
 
-/* Animated Glow Background */
+/* Soft Glow Background */
 body::before{
   content:'';
   position:fixed;
-  width:600px;
-  height:600px;
-  background:radial-gradient(circle, rgba(255,0,80,0.4), transparent 70%);
-  top:-200px;
-  left:-200px;
+  width:500px;
+  height:500px;
+  background:radial-gradient(circle, rgba(255,0,80,0.25), transparent 70%);
+  top:-150px;
+  left:-150px;
   filter:blur(120px);
-  animation:moveGlow 10s infinite alternate;
   z-index:-1;
 }
 
 body::after{
   content:'';
   position:fixed;
-  width:600px;
-  height:600px;
-  background:radial-gradient(circle, rgba(0,150,255,0.4), transparent 70%);
-  bottom:-200px;
-  right:-200px;
+  width:500px;
+  height:500px;
+  background:radial-gradient(circle, rgba(0,150,255,0.25), transparent 70%);
+  bottom:-150px;
+  right:-150px;
   filter:blur(120px);
-  animation:moveGlow 12s infinite alternate-reverse;
   z-index:-1;
 }
 
-@keyframes moveGlow{
-  from{transform:translate(0,0)}
-  to{transform:translate(100px,100px)}
-}
-
-/* Floating particles */
+/* Floating Particles */
 canvas{
   position:fixed;
   top:0;
@@ -55,16 +48,16 @@ canvas{
   z-index:-2;
 }
 
-/* Header */
 header{
   display:flex;
   justify-content:space-between;
   align-items:center;
   padding:20px 40px;
   backdrop-filter:blur(10px);
-  background:rgba(0,0,0,0.3);
+  background:rgba(0,0,0,0.4);
   position:sticky;
   top:0;
+  border-bottom:1px solid rgba(255,255,255,0.08);
 }
 
 .logo{
@@ -80,37 +73,39 @@ header{
 }
 
 .btn{
-  background:#ff2a2a;
-  padding:10px 20px;
+  padding:10px 22px;
   border-radius:30px;
   text-decoration:none;
   font-weight:600;
   transition:0.3s;
 }
 
-.btn:hover{
-  transform:scale(1.1);
+.primary{background:#ff2a2a}
+.secondary{
+  border:1px solid #fff;
+  margin-left:10px;
 }
 
-/* Hero */
+.btn:hover{transform:scale(1.05)}
+
 .hero{
   text-align:center;
-  padding:140px 20px;
+  padding:140px 20px 100px;
 }
 
 .hero h1{
-  font-size:50px;
+  font-size:48px;
   margin-bottom:20px;
 }
 
-.typing{
-  color:#ff2a2a;
-  font-weight:700;
+.hero p{
+  max-width:700px;
+  margin:auto;
+  opacity:0.8;
 }
 
-/* Sections */
 .section{
-  padding:80px 20px;
+  padding:90px 20px;
   max-width:1200px;
   margin:auto;
   text-align:center;
@@ -123,35 +118,52 @@ header{
   margin-top:40px;
 }
 
-/* 3D Tilt Card */
 .card{
   background:rgba(255,255,255,0.05);
   padding:30px;
   border-radius:20px;
-  transition:0.2s;
-  transform-style:preserve-3d;
-  perspective:1000px;
+  transition:0.3s;
   cursor:pointer;
 }
 
 .card:hover{
-  transform:rotateX(8deg) rotateY(-8deg);
+  transform:translateY(-10px);
+  background:rgba(255,255,255,0.08);
 }
 
-/* CTA Section */
+.stats{
+  display:flex;
+  justify-content:center;
+  gap:60px;
+  margin-top:40px;
+  flex-wrap:wrap;
+}
+
+.stat h2{
+  font-size:40px;
+}
+
+.testimonial{
+  margin-top:40px;
+  max-width:600px;
+  margin-left:auto;
+  margin-right:auto;
+  opacity:0.9;
+}
+
 .cta{
   margin-top:60px;
-  padding:40px;
+  padding:50px;
   background:rgba(255,255,255,0.05);
   border-radius:20px;
 }
 
 .cta button{
   margin-top:20px;
-  padding:12px 25px;
-  background:#25D366;
+  padding:12px 30px;
   border:none;
   border-radius:30px;
+  background:#25D366;
   font-weight:600;
   cursor:pointer;
 }
@@ -162,7 +174,6 @@ footer{
   opacity:0.6;
 }
 
-/* Floating Buttons */
 .wa,.ig{
   position:fixed;
   right:20px;
@@ -170,13 +181,10 @@ footer{
   border-radius:50px;
   text-decoration:none;
   font-weight:600;
-  transition:0.3s;
 }
 
 .wa{bottom:20px;background:#25D366}
 .ig{bottom:80px;background:#e1306c}
-
-.wa:hover,.ig:hover{transform:scale(1.1)}
 </style>
 </head>
 
@@ -189,12 +197,25 @@ footer{
     <img src="logo.png">
     AG MARKETING AGENCY
   </div>
-  <a class="btn" href="#services">Services</a>
+  <div>
+    <a class="btn primary" href="#contact">Get Started</a>
+    <a class="btn secondary" href="#services">Services</a>
+  </div>
 </header>
 
 <section class="hero">
-  <h1>We Help You <span class="typing"></span></h1>
-  <p>Premium marketing solutions to grow apps, businesses & brands online.</p>
+  <h1>Grow Your App & Business With Confidence 🚀</h1>
+  <p>We deliver performance-driven marketing strategies that help brands grow faster and smarter.</p>
+</section>
+
+<section class="section">
+  <h2>Why Choose Us</h2>
+  <div class="grid">
+    <div class="card">⚡ Fast Delivery</div>
+    <div class="card">📊 Transparent Reporting</div>
+    <div class="card">🎯 Performance Focused</div>
+    <div class="card">🤝 Long-Term Support</div>
+  </div>
 </section>
 
 <section class="section" id="services">
@@ -206,13 +227,29 @@ footer{
     <div class="card">📞 Justdial Promotion</div>
     <div class="card">🛒 Amazon Marketing</div>
     <div class="card">⭐ Reviews & Engagement</div>
-    <div class="card">📧 Fresh Gmail IDs</div>
-    <div class="card">🧾 App Signups</div>
   </div>
+</section>
 
+<section class="section">
+  <h2>Our Achievements</h2>
+  <div class="stats">
+    <div class="stat"><h2>50+</h2><p>Clients Served</p></div>
+    <div class="stat"><h2>200+</h2><p>Campaigns Completed</p></div>
+    <div class="stat"><h2>99%</h2><p>Client Satisfaction</p></div>
+  </div>
+</section>
+
+<section class="section">
+  <h2>What Clients Say</h2>
+  <div class="testimonial">
+    "Professional service, fast response and great support. Highly recommended!"
+  </div>
+</section>
+
+<section class="section" id="contact">
   <div class="cta">
-    <h3>Ready to Grow Your Business?</h3>
-    <p>Contact us today and get a custom growth strategy.</p>
+    <h2>Ready To Grow?</h2>
+    <p>Contact us today and get a custom strategy for your business.</p>
     <button onclick="window.open('https://wa.me/919525795915')">Contact on WhatsApp</button>
   </div>
 </section>
@@ -225,41 +262,23 @@ footer{
 <a class="wa" href="https://wa.me/919525795915" target="_blank">WhatsApp</a>
 
 <script>
-// Typing animation
-const words=["Grow Apps 🚀","Boost Rankings 📈","Increase Sales 💰","Build Brands 🔥"];
-let i=0,j=0,current='',isDeleting=false;
-function type(){
-  if(i<words.length){
-    if(!isDeleting && j<=words[i].length){
-      current=words[i].substring(0,j++);
-    }else if(isDeleting && j>=0){
-      current=words[i].substring(0,j--);
-    }
-    document.querySelector('.typing').textContent=current;
-    if(j==words[i].length) isDeleting=true;
-    if(j==0 && isDeleting){ isDeleting=false;i++; }
-  }else{i=0}
-  setTimeout(type,100);
-}
-type();
-
-// Particles background
+// Particles
 const canvas=document.getElementById('particles');
 const ctx=canvas.getContext('2d');
 canvas.width=window.innerWidth;
 canvas.height=window.innerHeight;
 let particles=[];
-for(let i=0;i<80;i++){
+for(let i=0;i<70;i++){
   particles.push({x:Math.random()*canvas.width,y:Math.random()*canvas.height,r:2});
 }
 function animate(){
   ctx.clearRect(0,0,canvas.width,canvas.height);
-  ctx.fillStyle="rgba(255,255,255,0.5)";
+  ctx.fillStyle="rgba(255,255,255,0.4)";
   particles.forEach(p=>{
     ctx.beginPath();
     ctx.arc(p.x,p.y,p.r,0,Math.PI*2);
     ctx.fill();
-    p.y+=0.5;
+    p.y+=0.4;
     if(p.y>canvas.height)p.y=0;
   });
   requestAnimationFrame(animate);
